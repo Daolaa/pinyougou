@@ -98,8 +98,8 @@ public class SellerController {
 			return new Result(false, "删除失败");
 		}
 	}
-	
-		/**
+
+	/**
 	 * 查询+分页
 	 * @param seller
 	 * @param page
@@ -110,5 +110,20 @@ public class SellerController {
 	public PageResult search(@RequestBody TbSeller seller, int page, int rows  ){
 		return sellerService.findPage(seller, page, rows);		
 	}
-	
+
+	/**
+	 * 更改状态
+	 * @param sellerId 商家ID
+	 * @param status 状态
+	 */
+	@RequestMapping("/updateStatus")
+	public Result updateStatus(String sellerId, String status) {
+		try {
+			sellerService.updateStatus(sellerId,status);
+			return new Result(true,"成了");
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new Result(false,"没成");
+		}
+	}
 }

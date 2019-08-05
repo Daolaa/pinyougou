@@ -1,5 +1,5 @@
  //控制层 
-app.controller('brandController' ,function($scope,$controller   ,brandService){	
+app.controller('brandController' ,function($scope,$controller,brandService){
 	
 	$controller('baseController',{$scope:$scope});//继承
 	
@@ -26,7 +26,7 @@ app.controller('brandController' ,function($scope,$controller   ,brandService){
 	$scope.findOne=function(id){				
 		brandService.findOne(id).success(
 			function(response){
-				$scope.entity= response;					
+				$scope.entity= response;
 			}
 		);				
 	}
